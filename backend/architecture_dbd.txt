@@ -1,0 +1,92 @@
+users{ 
+    identity{fullName, bio, picture},
+    email,
+    username,
+    isOnLine,
+    isActivated,
+    password,
+    verifyAd,
+    verifyToken,
+    tokenExpiredAt,
+    createdAt,
+    updatedAt,
+}
+
+contacts{
+    idUser1,
+    idUser2,
+    isBlockedUser1,
+    isBlockedUser2,
+    isAccepted
+}
+
+discussions{
+    tags[PRIVATE, GROUPE, DIFFUSION],
+    participants[
+        user{
+            id,
+            isSilent,
+            isArchived,
+            isDelected,
+            isAdmin,
+            hasNotification,
+        }, ...
+    ],
+    name,
+    description,
+    picture,
+    createdAt,
+    createdBy
+}
+
+messages{
+    senderId,
+    messagesId,
+    discussionId,
+    createdAt,
+    file{
+        size, ext, path
+    },
+    signalers[userId, ...],
+    updatedAt,
+}
+
+
+// logo
+
+Forme et Concept :
+
+Le logo représente deux bulles de discussion entrelacées formant un W stylisé.
+Les bulles symbolisent la communication et l’échange d’idées, cœur d’une application de messagerie.
+La forme "W" fait référence au nom de l’application, WlaNMe, pour renforcer l'identité visuelle.
+Couleurs :
+
+Dégradé bleu à violet :
+Bleu : Confiance, technologie et fiabilité.
+Violet : Innovation, créativité et connectivité.
+Ce dégradé donne un aspect moderne et professionnel tout en attirant visuellement.
+Style :
+
+Minimaliste : Le design simple mais élégant reflète une application épurée et intuitive.
+Flat Design : Utilisé pour s’adapter aux tendances modernes du web et du mobile.
+Fonds et Contraste :
+
+Fond blanc : Met en valeur le logo et le rend adaptable à différents contextes (site web, application mobile, documents).
+Ce logo évoque instantanément l'idée d'un espace connecté et personnalisé, parfait pour une application de messagerie moderne comme WlaNMe. 😊
+
+
+// codes Couleurs
+Bleu :
+
+Hex : #007BFF
+RGB : rgb(0, 123, 255)
+
+Violet :
+Hex : #6F42C1
+RGB : rgb(111, 66, 193)
+
+Dégradé :
+Du bleu #007BFF au violet #6F42C1, en utilisant un dégradé linéaire (linear gradient).
+
+CSS Exemple :
+background: linear-gradient(90deg, #007BFF, #6F42C1);
