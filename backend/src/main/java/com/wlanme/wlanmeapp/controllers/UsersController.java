@@ -1,6 +1,7 @@
 package com.wlanme.wlanmeapp.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,8 +37,22 @@ public class UsersController {
     @PostMapping
     public ResponseEntity<Users> postMethodName(@RequestBody Users users) {
         try {
-            Users userSave = usersRepository.save(users);
-            return new ResponseEntity<>(userSave, HttpStatus.CREATED);
+            Optional<Users> existingUserEmail = usersRepository.findByEmail(users.getEmail());
+            Optional<Users> existingUserUsername = usersRepository.findByUsername(users.getUsername());
+
+            if (existingUserEmail.isPresent() || existingUserUsername.isPresent()) {
+                if (existingUserEmail.isPresent() && !existingUserUsername.isPresent()) {
+                    System.out.println("L'email existe déjà !");
+                } else if (existingUserUsername.isPresent() && !existingUserEmail.isPresent()) {
+                    System.out.println("Le username existe déjà !");
+                } else {
+                    System.out.println("L'email et le username existe déjà !");
+                }
+                return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+            } else {
+                Users userSave = usersRepository.save(users);
+                return new ResponseEntity<>(userSave, HttpStatus.CREATED);
+            }
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
