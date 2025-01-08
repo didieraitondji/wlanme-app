@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
-@RequestMapping(value = "/users")
+@RequestMapping(value = "/user")
 public class UsersController {
 
     @Autowired
     private UsersRepository usersRepository;
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Users> listUtilisateur() {
         return usersRepository.findAll();
     }
@@ -43,11 +43,4 @@ public class UsersController {
         }
     }
 
-    public UsersRepository getUsersRepository() {
-        return usersRepository;
-    }
-
-    public void setUsersRepository(UsersRepository usersRepository) {
-        this.usersRepository = usersRepository;
-    }
 }
