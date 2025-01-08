@@ -1,5 +1,8 @@
 package com.wlanme.wlanmeapp.models;
 
+//import java.time.LocalDateTime;
+//import java.time.format.DateTimeFormatter;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -7,6 +10,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Users {
     @Id
     private String id;
+    // private LocalDateTime now = LocalDateTime.now();
+    // private LocalDateTime expirationTime = now.plusMinutes(10);
+    // private DateTimeFormatter formater =
+    // DateTimeFormatter.ofPattern("yyyy:MM:dd'T'HH:mm:ss");
+    // private TokenGenerator token = new TokenGenerator();
     private Identity identity;
 
     public Identity getIdentity() {
@@ -37,26 +45,6 @@ public class Users {
         this.username = username;
     }
 
-    private boolean isOnLine;
-
-    public boolean isOnLine() {
-        return isOnLine;
-    }
-
-    public void setOnLine(boolean isOnLine) {
-        this.isOnLine = isOnLine;
-    }
-
-    private boolean isActivated;
-
-    public boolean isActivated() {
-        return isActivated;
-    }
-
-    public void setActivated(boolean isActivated) {
-        this.isActivated = isActivated;
-    }
-
     private String password;
 
     public String getPassword() {
@@ -67,6 +55,29 @@ public class Users {
         this.password = password;
     }
 
+    // private boolean isOnLine = false;
+    private boolean isOnLine;
+
+    public boolean isOnLine() {
+        return isOnLine;
+    }
+
+    public void setOnLine(boolean isOnLine) {
+        this.isOnLine = isOnLine;
+    }
+
+    // private boolean isActivated = true;
+    private boolean isActivated;
+
+    public boolean isActivated() {
+        return isActivated;
+    }
+
+    public void setActivated(boolean isActivated) {
+        this.isActivated = isActivated;
+    }
+
+    // private String verifyAt = null;
     private String verifyAt;
 
     public String getVerifyAt() {
@@ -77,6 +88,7 @@ public class Users {
         this.verifyAt = verifyAt;
     }
 
+    // private String verifyToken = token.generateVerificationToken();
     private String verifyToken;
 
     public String getVerifyToken() {
@@ -87,6 +99,7 @@ public class Users {
         this.verifyToken = verifyToken;
     }
 
+    // private String tokenExpiredAt = expirationTime.format(formater);
     private String tokenExpiredAt;
 
     public String getTokenExpiredAt() {
@@ -97,6 +110,7 @@ public class Users {
         this.tokenExpiredAt = tokenExpiredAt;
     }
 
+    // private String createdAt = now.format(formater);
     private String createdAt;
 
     public String getCreatedAt() {
@@ -107,6 +121,7 @@ public class Users {
         this.createdAt = createdAt;
     }
 
+    // private String updatedAt = now.format(formater);
     private String updatedAt;
 
     public String getUpdatedAt() {
@@ -116,4 +131,14 @@ public class Users {
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+    // création du constructeur
+
+    // public Users(Identity identity, String email, String username, String
+    // password) {
+    // this.identity = identity;
+    // this.email = email;
+    // this.username = username;
+    // this.password = password;
+    // }
 }
